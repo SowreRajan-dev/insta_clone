@@ -1,0 +1,16 @@
+.button {
+  padding: 7px 8px;
+  border-radius: 3px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.primary-btn {
+  background: #0095f6;
+  color: white;
+}
+
+.secondary-btn {
+  color: #0095f6;
+}

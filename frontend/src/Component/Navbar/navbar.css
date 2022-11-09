@@ -1,0 +1,32 @@
+@import url(//db.onlinewebfonts.com/c/33bc06ea126d3ff79886277122f1f510?family=Brush+Script+MT);
+.navbar-container {
+  padding: 10px;
+  border-bottom: 1px solid rgb(220, 220, 220);
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 2;
+}
+
+.navbar {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  font-family: "Brush Script MT";
+  font-size: 32px;
+}
+.actions-section {
+  display: flex;
+}
+.actions-section div:first-child {
+  margin-right: 15px;
+}
+
+.hoverable:hover {
+  cursor: pointer;
+}

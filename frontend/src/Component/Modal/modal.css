@@ -1,0 +1,109 @@
+.modal-container {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.45);
+}
+.modal-container svg:first-child {
+  color: white;
+  cursor: pointer;
+}
+.modal {
+  background: #fff;
+  width: 800px;
+  height: 600px;
+  margin: auto;
+  margin-top: 150px;
+  display: flex;
+}
+
+.close-modal {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+.modal-image {
+  width: 500px;
+  height: 600px;
+  object-fit: cover;
+}
+.modal-content-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 14px;
+}
+
+.modal-top-section {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid rgb(220, 220, 220);
+}
+.profile-image {
+  max-width: 36px;
+  max-height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.username {
+  font-weight: 600;
+}
+
+.modal-comment-section {
+  height: 350px;
+  overflow-y: scroll;
+}
+
+.modal-section {
+  padding: 15px;
+  border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.modal-section svg:first-child {
+  color: #000;
+}
+.modal-details-section {
+}
+.post-likes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.modal-details-section span {
+  font-weight: 600;
+}
+.details-actions {
+  display: flex;
+}
+
+.details-actions svg {
+  font-size: 28px;
+  margin: 0px 10px;
+}
+.details-actions svg:first-child {
+  margin-left: 0px;
+}
+.details-actions svg:last-child {
+  margin-right: 0px;
+}
+
+.modal-write-section {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  color: rgb(150, 150, 150);
+}
+.modal-write-section a {
+  margin-right: 5px;
+  text-decoration: none;
+  color: rgb(83, 40, 226);
+}
+
+.modal-write-section a:visited {
+  color: rgb(49, 23, 138);
+}

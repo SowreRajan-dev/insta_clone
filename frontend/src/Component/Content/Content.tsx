@@ -2,10 +2,12 @@ import React, { useEffect } from 'react'
 import "./content.css";
 import posts from "../../data/posts/posts.json";
 import Post from '../Post/Post';
+import { Post as PostModel } from "../../Models/Post/Post";
 interface Props { 
   selectPost: Function;
+  posts: PostModel[];
 }
-function Content({ selectPost}:Props) {
+function Content({ selectPost,posts}:Props) {
   // useEffect(() => { 
   //   console.log("object");
   // },[posts])

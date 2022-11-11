@@ -1,7 +1,7 @@
 import React from "react";
 import "./login.css";
 import Facebook from "@mui/icons-material/Facebook"
-
+import { Link} from "react-router-dom"
 function Login() {
   return (
     <div className="login-container">
@@ -37,7 +37,11 @@ function Login() {
         </div>
         <div className="mid-section">
           <div>
-              Don't have an account? <span>Sign up</span>
+            Don't have an account? <span>
+              <Link to="/signup">
+                Sign up
+              </Link>
+            </span>
 
           </div>
            

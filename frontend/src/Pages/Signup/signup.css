@@ -1,10 +1,17 @@
-.login-container {
+.signup-container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
   background: #efefef;
+  margin-top: 50px;
+}
+
+.signup-text {
+  font-size: 18px;
+  color: #999090;
+  font-weight: 500;
 }
 
 .right-section {
@@ -17,7 +24,6 @@
   background: white;
   width: 400px;
   height: 100%;
-  /* width: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,9 +34,10 @@
 .logo-section {
   font-size: 50px;
   font-family: "Brush Script MT";
+  text-align: center;
 }
 
-.login-form {
+.signup-form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -40,7 +47,7 @@
   margin-bottom: 20px;
 }
 
-.login-input-form {
+.signup-input-form {
   width: 70%;
   height: 25px;
   background-color: #fafafa;
@@ -48,7 +55,7 @@
   padding: 5px;
   border-radius: 3px;
 }
-.login-input-form:focus {
+.signup-input-form:focus {
   outline: none;
 }
 
@@ -56,7 +63,7 @@
   color: #606770;
 }
 
-.login-btn {
+.signup-btn {
   margin-top: 20px;
   width: 70%;
   padding: 8px;
@@ -73,24 +80,29 @@
   margin: 0 20px;
 }
 
-.or-section {
+.or-section-signup {
   font-weight: 600;
   color: #999090;
   width: 100%;
   display: flex;
   align-items: center;
-}
-
-.facebook-login {
-  display: flex;
-  color: #385195;
-  font-weight: 600;
   margin-top: 20px;
-  cursor: pointer;
 }
 
-.facebook-login span:first-child {
-  color: #385185;
+.facebook-login-signup {
+  display: flex;
+  background: #0095f6;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  width: 70%;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+}
+
+.facebook-login-signup span:first-child {
+  color: #fff;
   margin-right: 5px;
 }
 
@@ -133,4 +145,13 @@
 .provider-section img:last-child {
   width: 120px;
   height: 40px;
+}
+
+.terms-text {
+  color: #999090;
+  text-align: center;
+}
+
+.terms-text b {
+  color: #606770;
 }

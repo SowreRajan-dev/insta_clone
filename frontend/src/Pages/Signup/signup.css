@@ -3,9 +3,8 @@
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: #efefef;
-  margin-top: 50px;
 }
 
 .signup-text {
@@ -16,6 +15,7 @@
 
 .right-section {
   display: flex;
+  margin-top: 50px;
   justify-content: center;
   flex-direction: column;
 }

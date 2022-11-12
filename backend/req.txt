@@ -1,0 +1,53 @@
+
+USERS:
+          User model:
+                    userId : String,
+                    username : String,
+                    fullname : String,
+                    passowrd : String,
+                    active : Boolean
+                    followers : ObjectId - type User
+                    following : ObjectId
+                    reset_token String 
+                    expire_token : String
+                    profile_image : String
+              
+          User routes 
+                   get indivudual user : GET   /user/:id
+                   Update User :    PUT /user/:id
+                   Delete User : DELETE /user/:id
+                   Follow User : PUT /follow 
+                   Unfollow User : PUT /unfollow
+Post routes
+              Post Model:
+                     postId : String
+                     likes : Number,
+                     profile_name : String
+                     image_url : String
+                     profile_url : String
+                     comments : Comment[]
+             
+              Comment Model:
+                     commentId : String,
+                     message : String,
+                     from: String,
+                     profile_name : String,
+                     likes : Number,
+                     profile_image_url : String
+             
+               Post routes:
+                     get all post : GET /allpost
+                     get followed post : GET /allfollowedpost
+                     create new post : POST  /createpost
+                     post of current user: GET /myposts
+                     like a post : PUT  /like
+                     unlike a post : PUT /unlike
+                     comment a post : PUT /comment
+                     delete a post : DELETE /delete/:postId 
+                     
+
+Authentication routes:
+         login : POST /login
+         signup : POST /signup
+
+

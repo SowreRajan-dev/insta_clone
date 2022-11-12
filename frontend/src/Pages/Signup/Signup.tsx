@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./signup.css";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Facebook from "@mui/icons-material/Facebook";
+import { useStateValue } from "../../Context/StateProvider";
+import axios from "axios";
 
 function Signup() {
+  const {user,dispatch} = useStateValue();
+  const [email, setEmail] = useState<string | null>("");
+  const [username, setUsername] = useState<string | null>("");
+  const [fullname, setFullName] = useState<string | null>("");
+  const [password, setPassword] = useState<string | null>("");
+  const [servermsg, setServerMessage] = useState(null);
+  const navigate = useNavigate()
+
+  const onSignUpUser = async () => { 
+    await axios.post("http://localhost:8080/auth/signup", {
+      email: email,
+      username: username,
+      fullname: fullname,
+      password: password
+    }).then((result) => { 
+      if (result.data.error) {
+        setServerMessage(result.data.error);
+      } else {
+        navigate("/login");
+      }
+    })
+  }
   return (
     <div className="signup-container">
       <div className="right-section">
@@ -23,12 +47,13 @@ function Signup() {
           <div className="or-section-signup">
             <div className="horiz"></div> OR <div className="horiz"></div>
           </div>
-          <form className="signup-form" action="">
+          <div className="signup-form" >
             <input
               type="email"
               placeholder="Email"
               className="signup-input-form"
               id="email"
+              onChange={(e)=> setEmail(e.target.value)}
             />
             <br />
             <input
@@ -36,6 +61,8 @@ function Signup() {
               placeholder="Fullname"
               className="signup-input-form"
               id="fullname"
+              onChange={(e)=> setFullName(e.target.value)}
+
             />
             <br />
             <input
@@ -43,6 +70,8 @@ function Signup() {
               placeholder="Username"
               className="signup-input-form"
               id="username"
+              onChange={(e)=> setUsername(e.target.value)}
+
             />
             <br />
             <input
@@ -50,11 +79,13 @@ function Signup() {
               placeholder="Password"
               className="signup-input-form"
               id="password"
+              onChange={(e)=> setPassword(e.target.value)}
+
             />
-            <button type="submit" className="signup-btn">
+            <button  className="signup-btn" onClick={onSignUpUser}>
               Sign up
             </button>
-          </form>
+          </div>
           <p className="terms-text">
             People who use our service may have uploaded <br /> your contact
             information to Instagram. <b> Learn <br /> More <br  /> </b>

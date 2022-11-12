@@ -5,8 +5,8 @@ const jsonwebtoken = require("jsonwebtoken");
 
 //*register a user
 router.post("/signup", (req, res) => {
-  const { username, fullname, password } = req.body;
-  if (!username || !fullname || !password) {
+  const { username, fullname, password, email } = req.body;
+  if (!username || !fullname || !password || !email) {
     res
       .status(422)
       .json({ error: "Please add all the required fields correctly" });
@@ -23,6 +23,7 @@ router.post("/signup", (req, res) => {
           username: username,
           password: hashedPassword,
           fullname: fullname,
+          email: email,
         });
 
         user
@@ -75,6 +76,7 @@ router.post("/login", (req, res) => {
           followers,
           active,
           profile,
+          email,
         } = savedUser;
 
         res.status(200).json({
@@ -87,6 +89,7 @@ router.post("/login", (req, res) => {
             followers,
             active,
             profile,
+            email,
           },
         });
       });

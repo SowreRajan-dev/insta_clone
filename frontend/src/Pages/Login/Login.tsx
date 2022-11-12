@@ -1,20 +1,55 @@
-import React from "react";
+import React, { useState} from "react";
 import "./login.css";
 import Facebook from "@mui/icons-material/Facebook"
-import { Link} from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useStateValue } from "../../Context/StateProvider";
+import { actionTypes } from "../../Context/UserContext/userReducer";
 function Login() {
+  const [username, setUsername] = useState<string| null>("");
+  const [password, setPassword] = useState<string | null>("");
+  const [serverMessage, setServerMessage] = useState<string | null>(null);
+  const {user,dispatch} = useStateValue();
+  const navigate = useNavigate();
+
+  
+  const signInUser = async () => { 
+    try { 
+      await axios.post("http://localhost:8080/auth/login", {
+        username: username,
+        password: password
+      }).then((result :any) => { 
+        console.log(result.data);
+        if (result.error) {
+          setServerMessage(result.error);
+        } else { 
+          localStorage.setItem("JWT", result.data.token);
+          localStorage.setItem("User", JSON.stringify(result.data.user));
+          dispatch({
+            type: actionTypes.SET_USER,
+            action: result.data.user
+          });
+          navigate("/")
+          
+        }
+      })
+    } catch (err) { 
+      console.log(err);
+    }
+  }
   return (
     <div className="login-container">
       <div className="left-section"></div>
       <div className="right-section">
         <div className="top-section">
           <div className="logo-section hoverable">Instagram</div>
-          <form className="login-form" action="">
+          <div className="login-form" >
             <input
               type="text"
-              placeholder="Phone number, username, or email"
+              placeholder="Username"
               className="login-input-form"
               id="username"
+              onChange={(e) => setUsername(e.target.value) }
             />
             <br />
             <input
@@ -22,11 +57,13 @@ function Login() {
               placeholder="Password"
               className="login-input-form"
               id="password"
+              onChange={(e) => setPassword(e.target.value) }
+
             />
-            <button type="submit" className="login-btn">
+            <button  className="login-btn" onClick={signInUser}>
               Log in
             </button>
-          </form>
+          </div>
           <div className="or-section">
               <div className="horiz"></div> OR <div className="horiz"></div>
           </div>

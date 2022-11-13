@@ -25,6 +25,7 @@ function Login() {
         } else { 
           localStorage.setItem("JWT", result.data.token);
           localStorage.setItem("User", JSON.stringify(result.data.user));
+          localStorage.setItem("isUserLoggedIn",JSON.stringify(true) )
           dispatch({
             type: actionTypes.SET_USER,
             action: result.data.user

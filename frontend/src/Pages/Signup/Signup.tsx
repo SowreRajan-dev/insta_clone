@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import "./signup.css";
 import { Link,useNavigate } from "react-router-dom";
 import Facebook from "@mui/icons-material/Facebook";
-import { useStateValue } from "../../Context/StateProvider";
 import axios from "axios";
 
 function Signup() {
-  const {user,dispatch} = useStateValue();
   const [email, setEmail] = useState<string | null>("");
   const [username, setUsername] = useState<string | null>("");
   const [fullname, setFullName] = useState<string | null>("");

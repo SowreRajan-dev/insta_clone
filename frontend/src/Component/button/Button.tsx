@@ -1,17 +1,17 @@
 import "./button.css"
 interface Props { 
     label: string;
-    primary?:boolean;
+    primary?: boolean;
 }
 function Button({ label,primary }: Props) {
     if (primary) {
 
         return (
-            <div className="button primary-btn hoverable">{label}</div>
+            <button className="button primary-btn hoverable">{label}</button>
         )
     } else {
         return (
-            <div className="button secondary-btn hoverable">{label}</div>
+            <button className="button secondary-btn hoverable">{label}</button>
         )
     
     }

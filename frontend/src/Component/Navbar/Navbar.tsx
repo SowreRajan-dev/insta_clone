@@ -31,7 +31,9 @@ function Navbar({ searchValue, onSearchValueChange }: Props) {
           isLoggedIn ? (
             <div className="nav-profile-section">
               <div className="profile-desc">
-                <img src="/assets/default-profile.png" className="profile-img hoverable" alt="profile_img" />
+                <Link to={`/profile/${user._id}`}>
+                  <img src="/assets/default-profile.png" className="profile-img hoverable" alt="profile_img" />
+                </Link>
                 <p>Hello { user.fullname }</p>
               </div>
               <button className="logOutButton hoverable" onClick={onLogOut}>Log out</button>

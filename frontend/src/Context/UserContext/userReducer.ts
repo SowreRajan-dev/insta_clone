@@ -29,8 +29,9 @@ const reducer = (state: any, action: any) => {
     case actionTypes.UPDATE_USER:
       return {
         ...state,
-        followers: action.followers,
-        following: action.followers,
+        user:action.action,
+        followers: action.action.followers,
+        following: action.action.followers,
       };
 
     case actionTypes.UPDATE_PIC:

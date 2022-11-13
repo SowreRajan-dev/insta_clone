@@ -29,17 +29,19 @@ router.get("/:id", requireLogin, async (req, res) => {
   }
 });
 
-router.put("/update/:id", (req, res) => {
+router.put("/update/:id", requireLogin, (req, res) => {
   const { id } = req.params;
   if (req.body.userId === id) {
     try {
       User.findByIdAndUpdate(id, {
         $set: req.body,
-      }).then((user) => {
-        return res.status(200).json({
-          updatedUser: user,
+      })
+        .select("-password")
+        .then((user) => {
+          return res.status(200).json({
+            updatedUser: user,
+          });
         });
-      });
     } catch (err) {
       console.log(err);
     }
@@ -106,6 +108,26 @@ router.put("/unfollow", requireLogin, (req, res) => {
         .catch((err) => {
           return res.status(422).json({ error: err });
         });
+    }
+  );
+});
+
+// * set profile image
+router.put("/set-profile", requireLogin, (req, res) => {
+  User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $set: {
+        profile: req.body.profile,
+      },
+    },
+    { new: true },
+    (err, result) => {
+      if (err) {
+        return res.status(422).json({ error: "pic cannot be updated" });
+      } else {
+        res.status(200).json(result);
+      }
     }
   );
 });

@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema(
     ],
     profile: {
       type: String,
+      defalut: "",
     },
     reset_token: String,
     expire_token: Date,

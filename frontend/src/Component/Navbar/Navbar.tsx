@@ -32,7 +32,7 @@ function Navbar({ searchValue, onSearchValueChange }: Props) {
             <div className="nav-profile-section">
               <div className="profile-desc">
                 <Link to={`/profile/${user._id}`}>
-                  <img src="/assets/default-profile.png" className="profile-img hoverable" alt="profile_img" />
+                  <img src={user.profile ? user.profile :"/assets/default-profile.png"} className="profile-img hoverable" alt="profile_img" />
                 </Link>
                 <p>Hello { user.fullname }</p>
               </div>

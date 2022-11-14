@@ -37,7 +37,7 @@ const reducer = (state: any, action: any) => {
     case actionTypes.UPDATE_PIC:
       return {
         ...state,
-        profile: action.profile,
+        profile: action.action
       };
     default:
       return state;

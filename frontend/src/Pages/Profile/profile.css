@@ -125,3 +125,38 @@
   font-family: "Poppins";
   text-transform: capitalize;
 }
+
+.file-upload {
+  color: #000;
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+}
+
+.profile-update-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgb(231, 223, 223);
+}
+
+.profile-update-section {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btn-container-update {
+  display: flex;
+  margin-left: 30px;
+}

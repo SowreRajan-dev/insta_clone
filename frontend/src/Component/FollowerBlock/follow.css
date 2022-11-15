@@ -1,0 +1,13 @@
+.follow-block {
+  width: 300px;
+  height: 350px;
+  background: #fff;
+  margin: 50px;
+  padding: 20px;
+}
+
+.follow-text {
+  font-size: 20px;
+  font-family: "Poppins";
+  text-align: center;
+}

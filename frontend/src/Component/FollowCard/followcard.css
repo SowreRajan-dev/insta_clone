@@ -1,0 +1,52 @@
+.follower-card {
+  width: 100%;
+  height: 60px;
+  margin-top: 10px;
+  background-color: rgb(217, 217, 217);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.follower-card-section img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgb(200, 199, 199);
+}
+
+.follow-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  position: relative;
+}
+
+.follow-btn-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.follow-name {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px;
+}
+
+.follow-btn {
+  padding: 7px 8px;
+  border-radius: 3px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  color: #0095f6;
+  background: transparent;
+}
+.unfollow {
+  color: #ee2d2d;
+  background: transparent;
+}

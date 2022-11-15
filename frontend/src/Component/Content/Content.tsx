@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import "./content.css";
-import posts from "../../data/posts/posts.json";
 import Post from '../Post/Post';
 import { Post as PostModel } from "../../Models/Post/Post";
 interface Props { 

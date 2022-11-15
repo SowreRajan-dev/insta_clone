@@ -67,12 +67,13 @@ router.put("/follow", requireLogin, (req, res) => {
       User.findByIdAndUpdate(
         req.user._id,
         {
-          $push: { following: followId },
+          $addToSet: { following: followId },
         },
         { new: true }
       )
         .select("-password")
         .then((result) => {
+          res;
           res.status(200).json(result);
         })
         .catch((err) => {
@@ -130,6 +131,23 @@ router.put("/set-profile", requireLogin, (req, res) => {
       }
     }
   );
+});
+
+// * get all users
+router.get("/every/all", requireLogin, async (req, res) => {
+  try {
+    const users = await User.find(
+      {
+        _id: {
+          $nin: req.user._id,
+        },
+      },
+      "-password"
+    );
+    return res.status(200).json(users);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 module.exports = router;

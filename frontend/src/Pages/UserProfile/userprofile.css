@@ -1,0 +1,107 @@
+.userprofile-container {
+  background-color: rgb(217, 217, 217);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userprofile-section {
+  background: #fff;
+  width: 80%;
+  height: 90%;
+}
+
+.profile-top-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.userprofile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profile-img-section {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.profile-stats-section {
+  flex: 2;
+}
+
+.follow-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.follow-section p {
+  font-size: 20px;
+  font-family: "Poppins";
+  text-align: center;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-container button {
+  padding: 7px 8px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  background: #0095f6;
+  color: white;
+  cursor: pointer;
+}
+
+.follow-content a {
+  text-decoration: none;
+}
+.follow-username {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Poppins";
+}
+
+.btn-container {
+  padding: 7px 8px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.unfollow-profile {
+  color: #fff;
+  cursor: pointer;
+  padding: 7px 8px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  background: #ee2d2d;
+}
+
+.follow-profile {
+  padding: 7px 8px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background: #0095f6;
+}

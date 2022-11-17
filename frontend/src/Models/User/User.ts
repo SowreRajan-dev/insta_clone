@@ -4,5 +4,6 @@ export interface User {
     fullName: string;
     active: boolean;
     followers: string[],
-    following: string[]
+    following: string[],
+    profile:string
 }

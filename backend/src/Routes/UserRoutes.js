@@ -58,7 +58,7 @@ router.put("/follow", requireLogin, (req, res) => {
   User.findByIdAndUpdate(
     followId,
     {
-      $push: { followers: req.user._id },
+      $addToSet: { followers: req.user._id },
     },
     (err, result) => {
       if (err) {
@@ -73,7 +73,6 @@ router.put("/follow", requireLogin, (req, res) => {
       )
         .select("-password")
         .then((result) => {
-          res;
           res.status(200).json(result);
         })
         .catch((err) => {

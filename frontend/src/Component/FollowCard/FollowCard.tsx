@@ -1,5 +1,6 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useStateValue } from "../../Context/StateProvider";
 import { actionTypes } from "../../Context/UserContext/userReducer";
 import "./followcard.css";
@@ -12,9 +13,11 @@ interface Props {
 }
 
 function FollowCard({ key, name, profile,id }: Props) {
-  const [isFollowed, setIsFollowed] = useState<string | null>(null);
-  const { dispatch } = useStateValue();
-  console.log(isFollowed)
+  const [isFollowed, setIsFollowed] = useState<string>( JSON.parse(window.localStorage.getItem("followings") as string)?.includes(id)? "unfollowed" : "followed");
+  const { user,dispatch } = useStateValue();
+
+  
+
   
   const onClickFollow = async() => {
     await axios.put("http://localhost:8080/user/follow", {
@@ -26,6 +29,7 @@ function FollowCard({ key, name, profile,id }: Props) {
     }).then(result => {
       console.log(result);
       localStorage.setItem("User", JSON.stringify(result.data));
+      localStorage.setItem("followings",JSON.stringify(result.data.following));
       dispatch({
         type: actionTypes.SET_USER,
         action:result.data
@@ -49,9 +53,13 @@ function FollowCard({ key, name, profile,id }: Props) {
         type: actionTypes.SET_USER,
         action:result.data
       })
+      localStorage.removeItem("followings");
+
       setIsFollowed("followed");
     })
   }
+
+
 
   return (
     <div className="follower-card" key={key}>
@@ -61,7 +69,9 @@ function FollowCard({ key, name, profile,id }: Props) {
           className="hoverable"
           alt="profile-img"
         />
-        <p className="follow-name hoverable">{name}</p>
+        <Link to={ `/user/profile/${id}`}>
+          <p className="follow-name hoverable">{name}</p>
+        </Link>
         <div className="follow-btn-container">
           <button className="follow-btn hoverable" >
             {isFollowed === "unfollowed" ? <p className="unfollow" onClick={onClickUnFollow}>Unfollow</p> : <p onClick={onClickFollow}>Follow</p>}

@@ -13,7 +13,7 @@
   height: 90%;
 }
 
-.profile-top-section {
+.userprofile-top-section {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -36,6 +36,9 @@
 
 .profile-stats-section {
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .follow-section {

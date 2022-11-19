@@ -5,7 +5,7 @@ const connectDB = require("./Config/dbConfig");
 const morgan = require("morgan");
 const userRoutes = require("./Routes/UserRoutes");
 const authRoutes = require("./Routes/AuthRoutes");
-
+const postRoutes = require("./Routes/postRoute");
 const app = express();
 
 app.use(express.json());
@@ -17,6 +17,7 @@ app.use(
 app.use(morgan("dev"));
 app.use("/user", userRoutes);
 app.use("/auth", authRoutes);
+app.use("/post", postRoutes);
 
 connectDB();
 

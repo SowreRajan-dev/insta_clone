@@ -3,25 +3,27 @@ const { ObjectId } = mongoose.Schema.Types;
 
 const postSchema = new mongoose.Schema(
   {
-    likes: {
-      type: String,
-      default: 0,
-    },
-    profile_name: {
-      type: String,
-    },
+    likes: [
+      {
+        type: ObjectId,
+        ref: "User",
+      },
+    ],
+    title: { type: String },
     image_url: {
       type: String,
     },
-    profile_url: { type: String },
-    posted_by: {
-      type: ObjectId,
-      ref: "User",
-    },
+    posted_by: [
+      {
+        type: ObjectId,
+        ref: "User",
+      },
+    ],
+    post_desc: { type: String },
     comments: [
       {
-        type: Object,
-        ref: "Comment",
+        text: String,
+        postedBy: { type: ObjectId, ref: "User" },
       },
     ],
   },

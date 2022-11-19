@@ -1,13 +1,18 @@
 const mongoose = require("mongoose");
-
+const { ObjectId } = mongoose.Schema.Types;
 const commentSchema = mongoose.Schema(
   {
     message: {
       type: String,
     },
-    from: { type: String },
+    from: { type: ObjectId, ref: "User" },
     profile_name: { type: String },
-    likes: { type: Number, default: 0 },
+    likes: [
+      {
+        type: ObjectId,
+        ref: "User",
+      },
+    ],
     profile_url: { type: String },
   },
   {

@@ -20,6 +20,7 @@ function Modal({ onClose, post }: Props) {
       onClose();
     }
   }
+
   return (
     <div onClick={e => onClickModal(e.target)} className="modal-container">
       <div className="close-modal hoverable">
@@ -29,26 +30,26 @@ function Modal({ onClose, post }: Props) {
         <img src={post?.image_url} className="modal-image" alt={post?.profile_name} />
         <div className="modal-content-section ">
           <div className="modal-top-section">
-            <img className=" profile-image hoverable" src={post?.profile_url} alt="" />
-            <div className="username hoverable">{post?.profile_name}</div>
+            <img className=" profile-image hoverable" src={post?.posted_by[0].profile ? post?.posted_by[0].profile : "/assets/default-profile.png"} alt="" />
+            <div className="username hoverable">{post?.posted_by[0].username ? post?.posted_by[0].username : "/assets/default-profile.png"}</div>
             <Button label="Follow"  />
             <div className="spacer"></div>
             <MoreHoriz className="hoverable" />
           </div>
           <div className="modal-comment-section modal-section">
             <div className="comment-container">
-              <img src={post?.profile_url} className="profile-image" alt={post?.profile_name} />
+              <img src={post?.posted_by[0]?.profile ? post?.posted_by[0]?.profile : "/assets/default-profile.png"} className="profile-image" alt={post?.posted_by[0].username} />
               <div >
                   <div>
-                      <span className="username">{post?.profile_name}</span>
-                      <span>{post?.description}</span>
+                      <span className="username">{post?.posted_by[0].username}</span>
+                      <span>{post?.post_desc}</span>
                     </div>
                   </div>
             </div>
             
           {
-            post?.comments.map((comment, index) => (
-              <Comment key={index} comment={comment} />
+              post?.comments.map((comment, index) => (
+               <Comment key={index} comment={comment} />
               
             ))
           }

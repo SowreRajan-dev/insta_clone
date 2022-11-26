@@ -6,6 +6,7 @@ import Signup from './Pages/Signup/Signup';
 import { useStateValue } from './Context/StateProvider';
 import Profile from './Pages/Profile/Profile';
 import UserProfile from './Pages/UserProfile/UserProfile';
+import CreatePost from './Pages/CreatePost/CreatePost';
 function App() {
   const { isLoggedIn } = useStateValue();
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route path="/login" element={ isLoggedIn ? <Landing /> : <Login /> } />
         <Route path="/signup" element={<Signup /> } />
         <Route path="/profile/:id" element={<Profile />} />
-        <Route path="/user/profile/:id" element={ <UserProfile />} />
+        <Route path="/user/profile/:id" element={<UserProfile />} />
+        <Route path="/post/newpost" element={<CreatePost />} />
       </Routes>
     </div>
   );

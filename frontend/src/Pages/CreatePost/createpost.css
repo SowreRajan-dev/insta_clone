@@ -1,0 +1,147 @@
+.newpost-container {
+  width: 100vw;
+  height: 100vh;
+  background: #efefef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newpost-section {
+  width: 600px;
+  height: 90%;
+  background: #fff;
+}
+
+.newpost-top-section {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.newpost-top-section img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.newpost-top-section > p {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "poppins";
+}
+
+.newpost-mid-section {
+  width: 100%;
+  height: 60%;
+  background: #afacac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newpost-bottom-section {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.newpost-bottom-section label {
+  font-size: 20px;
+}
+
+.newpost-bottom-section input {
+  width: 50%;
+  height: 30px;
+  margin-left: 10%;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.newpost-bottom-section input:focus {
+  outline: none;
+}
+
+.newpost-bottom-section textarea {
+  margin-left: 10%;
+  width: 50%;
+  height: 50px;
+  margin-left: 10%;
+  border-radius: 10px;
+  padding: 5px;
+  border-top: 3px solid rgb(34, 31, 31);
+  border-left: 3px solid rgb(34, 31, 31);
+  border-right: 3px solid rgb(181, 172, 172);
+  border-bottom: 3px solid rgb(181, 172, 172);
+  margin-top: 10px;
+}
+
+.newpost-bottom-section textarea:focus {
+  outline: none;
+}
+
+.post-btn {
+  width: 60px;
+  height: 30px;
+}
+
+.newpost-change-section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.icon {
+  color: #000;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.post-change-image {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(231, 223, 223);
+}
+
+.newpost-change-section:hover .overlay {
+  opacity: 1;
+}
+
+.newpost-change-section:hover {
+  opacity: 0.6;
+}
+
+.newpost-update-section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-update-image {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(231, 223, 223);
+}
+
+.newpost-update-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.btn-container-newupdate {
+  position: absolute;
+  right: -150px;
+}

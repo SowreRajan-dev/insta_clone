@@ -35,7 +35,7 @@ router.get("/allfollowedpost", requireLogin, (req, res) => {
     });
 });
 
-//  * post new images
+//  * post new post
 router.post("/createPost", requireLogin, (req, res) => {
   const { title, post_desc, image_url } = req.body;
   if (!title || !post_desc || !image_url) {
@@ -128,7 +128,7 @@ router.put("/comment", requireLogin, (req, res) => {
       new: true,
     }
   )
-    .populate("comments.postedBy", "_id username")
+    .populate("comments.postedBy", "_id username profile")
     .populate("posted_by", "_id profile_name")
     .then((result) => {
       return res.status(200).json(result);

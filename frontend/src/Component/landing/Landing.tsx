@@ -3,23 +3,32 @@ import { Post } from "../../Models/Post/Post";
 import Content from "../Content/Content";
 import Modal from "../Modal/Modal";
 import Navbar from "../Navbar/Navbar";
-import posts from "../../data/posts/posts.json";
-
+// import posts from "../../data/posts/posts.json";
 import "./landing.css";
 import { useStateValue } from "../../Context/StateProvider";
 import FollowerBlock from "../FollowerBlock/FollowerBlock";
-import axios from "axios";
 function Landing() {
   const [searchValue, setSearchValue] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState<Post | undefined>(undefined);
   const [allPosts, setAllPosts] = useState<Post[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
-  const { user, dispatch, isLoggedIn } = useStateValue();
+  const { isLoggedIn } = useStateValue();
+  // const [userPosts, setUserPosts] = useState(null);
   useEffect(() => {
-    setAllPosts([...allPosts, ...posts]);
-    setFilteredPosts([...filteredPosts, ...posts]);
+     fetch("http://localhost:8080/post/allposts", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("JWT")}`,
+      },
+    }).then(res => res.json()).then(result => {
+      setAllPosts([...allPosts, ...result.posts])
+      setFilteredPosts([...filteredPosts, ...result.posts]);
+    }).catch(err => { 
+      console.log(err);
+    })
   }, []);
+
 
   function selectPost(post: Post) {
     setSelectedPost(post);
@@ -33,12 +42,10 @@ function Landing() {
   function onSearchValueChange(newValue: string) {
     setSearchValue(newValue);
     let filteredPosts = allPosts.filter((p) =>
-      p.description.toLowerCase().includes(newValue.toLowerCase())
+      p.post_desc.toLowerCase().includes(newValue.toLowerCase())
     );
     setFilteredPosts([...filteredPosts]);
   }
-
-
   return (
     <div>
       <Navbar

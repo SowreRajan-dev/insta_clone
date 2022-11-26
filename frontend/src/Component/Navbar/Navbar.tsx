@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 import { useStateValue } from "../../Context/StateProvider";
 import { actionTypes } from "../../Context/UserContext/userReducer";
+import AddBoxOutlined from "@mui/icons-material/AddBoxOutlined"
 interface Props {
   searchValue: string;
   onSearchValueChange: Function;
@@ -34,7 +35,12 @@ function Navbar({ searchValue, onSearchValueChange }: Props) {
                 <Link to={`/profile/${user._id}`}>
                   <img src={user.profile ? user.profile :"/assets/default-profile.png"} className="profile-img hoverable" alt="profile_img" />
                 </Link>
-                <p>Hello { user.fullname }</p>
+                <p>Hello {user.fullname}</p>
+                <div className="addpost-container hoverable">
+                  <Link to="/post/newpost">
+                    <AddBoxOutlined />
+                  </Link>
+                </div>
               </div>
               <button className="logOutButton hoverable" onClick={onLogOut}>Log out</button>
             </div>

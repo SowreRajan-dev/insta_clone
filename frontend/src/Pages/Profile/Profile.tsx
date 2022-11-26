@@ -142,7 +142,7 @@ export default function Profile() {
               </div>
             </div>
           ) : (
-            <div className="profile-change-section hoverable">
+            <div className="post-change-section hoverable">
               <img
                 src={
                   user.profile !== ""

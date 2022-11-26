@@ -7,9 +7,7 @@ interface Props {
   posts: PostModel[];
 }
 function Content({ selectPost,posts}:Props) {
-  // useEffect(() => { 
-  //   console.log("object");
-  // },[posts])
+
   return (
     <div className="content-container">
       <div className="content">

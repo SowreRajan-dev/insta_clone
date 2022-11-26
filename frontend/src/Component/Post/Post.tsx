@@ -11,14 +11,15 @@ function Post({ post, selectPost }: Props) {
   function onClick() { 
     selectPost(post);
   }
+
   return (
     <div onClick={(e) => {onClick() }} className="post-container">
           <div className="post">
-        <a href="#a" style={{ backgroundImage: `url(${post.image_url})` }} className="post-image"></a>
+        <a href="#" style={{ backgroundImage: `url(${post.image_url})` }} className="post-image"></a>
         <div className="post-overlay">
           <span>
             <Favorite />
-            {post.likes}
+            {post.likes.length}
         </span>
           <span>
             <ModeComment />

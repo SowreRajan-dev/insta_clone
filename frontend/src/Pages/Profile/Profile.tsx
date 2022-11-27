@@ -19,7 +19,6 @@ export default function Profile() {
     }
   };
 
-  console.log(selectedImage);
 
   const removeSelectedImage = () => {
     setSelectedImage(null);

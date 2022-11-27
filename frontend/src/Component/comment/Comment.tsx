@@ -9,7 +9,7 @@ function Comment({ comment,key }: Props) {
   return (
       <div className="comment-container" key={key}>
         
-          {comment  && (
+          {comment && (
               <>
             <img src={comment.postedBy.profile ? comment.postedBy.profile : "/assets/default-profile.png"} className="profile-image" alt={comment.username} />
             <div >

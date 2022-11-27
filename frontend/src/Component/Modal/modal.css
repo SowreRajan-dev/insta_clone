@@ -6,10 +6,7 @@
   z-index: 2;
   background: rgba(0, 0, 0, 0.45);
 }
-.modal-container svg:first-child {
-  color: white;
-  cursor: pointer;
-}
+
 .modal {
   background: #fff;
   width: 800px;
@@ -64,16 +61,34 @@
   border-bottom: 1px solid rgb(220, 220, 220);
 }
 
-.modal-section svg:first-child {
-  color: #000;
+.unliked {
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
-.modal-details-section {
-}
+
 .post-likes {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
+
+.post-likes .unliked {
+  fill: #fff;
+}
+
+.post-likes .liked {
+  fill: #000;
+}
+
+.unliked:hover {
+  fill: #000;
+}
+
+.unliked {
+  stroke-width: 1;
+  stroke: #000;
+  fill: #fff;
+}
+
 .modal-details-section span {
   font-weight: 600;
 }

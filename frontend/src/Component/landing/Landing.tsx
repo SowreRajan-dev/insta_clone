@@ -13,7 +13,7 @@ function Landing() {
   const [selectedPost, setSelectedPost] = useState<Post | undefined>(undefined);
   const [allPosts, setAllPosts] = useState<Post[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
-  const { isLoggedIn } = useStateValue();
+  const { user,isLoggedIn } = useStateValue();
   // const [userPosts, setUserPosts] = useState(null);
   useEffect(() => {
      fetch("http://localhost:8080/post/allposts", {
@@ -27,6 +27,10 @@ function Landing() {
     }).catch(err => { 
       console.log(err);
     })
+
+    if (user) {
+            localStorage.setItem("followings",JSON.stringify(user?.following));
+    }
   }, []);
 
 

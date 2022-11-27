@@ -1,5 +1,6 @@
 import {Comment} from "../Comment/Comment"
 export interface Post {
+    _id: string;
     likes: string[];
     post_desc: string;
     profile_name: string;

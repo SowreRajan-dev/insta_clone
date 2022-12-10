@@ -5,7 +5,7 @@ interface Props {
     comment: CommentModal;
     key:number;
 }
-function Comment({ comment,key }: Props) {
+function Comment({ comment, key }: Props) {
   return (
       <div className="comment-container" key={key}>
         

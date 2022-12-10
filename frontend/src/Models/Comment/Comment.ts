@@ -1,12 +1,12 @@
 export interface Comment { 
+    _id: string;
     text: string;
-    from: string;
-    username: string;
-    likes: number;
-    profile_image_url: string;
     postedBy: {
-        username: string;
+        _id: string;
         profile: string;
+        username: string;
     }
+    likes: number;
+    username: string;
 
 }

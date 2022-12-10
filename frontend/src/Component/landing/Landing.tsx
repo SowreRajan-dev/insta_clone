@@ -3,7 +3,7 @@ import { Post } from "../../Models/Post/Post";
 import Content from "../Content/Content";
 import Modal from "../Modal/Modal";
 import Navbar from "../Navbar/Navbar";
-// import posts from "../../data/posts/posts.json";
+import axios from "axios";
 import "./landing.css";
 import { useStateValue } from "../../Context/StateProvider";
 import FollowerBlock from "../FollowerBlock/FollowerBlock";
@@ -50,6 +50,7 @@ function Landing() {
     );
     setFilteredPosts([...filteredPosts]);
   }
+ 
   return (
     <div>
       <Navbar
@@ -58,7 +59,7 @@ function Landing() {
       />
       <div className="landing-section">
         <Content posts={filteredPosts} selectPost={selectPost} />
-        {modalOpen && <Modal onClose={closeModal} post={selectedPost} />}
+        {modalOpen && <Modal onClose={closeModal} post={selectedPost}  />}
         {isLoggedIn && (
           <div className="follow-container">
             <FollowerBlock />
